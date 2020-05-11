@@ -7,5 +7,35 @@
 <br>Le résultat apparaitra en bas de cette liste </p>
 
 
-<p>Appuyer sur "initialiser" pour effacer tous les nombres de la liste</p>
+<p>Appuyer sur "Initialiser" pour effacer tous les nombres de la liste</p>
+
+
+<%= form_tag "/stage", method: "delete" do %>
+  <input type="submit" value="Initialiser" />
+<% end %>
+
+
+<% Number.all.each do |nb| %>
+<p><%= nb.value %></p>
+<% end %>
+
+<p>
+<%= form_tag "/stage", method: "post" do %>
+  <input type="float" name="value" />
+  <input type="submit" value="Ajouter ce nombre à la liste" />
+<% end %>
+
+<p>
+</p>
+<p>
+</p>
+
+<%= form_tag "/stage", method: "patch" do %>
+  <input type="submit" value="Calculer la somme des nombres de la liste" />
+<% end %>
+
+<p>
+</p>
+
+<h2><a href="/acknowledgements">Remerciements</a></h2>
 
