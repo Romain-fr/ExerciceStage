@@ -1,17 +1,18 @@
-<h1>Bienvenue sur la page initiale de mon projet</h1>
+<h1>Welcome to the homepage of my project</h1>
 
-<p> Cette page permet de calculer la somme des nombres que vous rentrerez. Pour ce faire:
-<br>- Rentrer un nombre dans l'endroit prévu pour
-<br>- Appuyer sur "Ajouter ce nombre à la liste"
-<br>- Une fois votre liste complète, appuyer sur "Calculer la somme des nombres de la liste"
-<br>Le résultat apparaitra en bas de cette liste </p>
+<p> This page allows you to calculate the sum of the numbers you enter. To do this:
+<br>- Enter a number in the space provided for
+<br>- Press "Add this number to the list"
+<br>- Once your list is complete, press "Calculate the sum of the numbers in the list"
+<br>The result will appear at the bottom of this list</p>
 
 
-<p>Appuyer sur "Initialiser" pour effacer tous les nombres de la liste</p>
+
+<p>Press "Reset" to cleat all numbers from the list</p>
 
 
 <%= form_tag "/stage", method: "delete" do %>
-  <input type="submit" value="Initialiser" />
+  <input type="submit" value="Reset" />
 <% end %>
 
 
@@ -22,7 +23,7 @@
 <p>
 <%= form_tag "/stage", method: "post" do %>
   <input type="float" name="value" />
-  <input type="submit" value="Ajouter ce nombre à la liste" />
+  <input type="submit" value="Add this number to the list" />
 <% end %>
 
 <p>
@@ -31,11 +32,11 @@
 </p>
 
 <%= form_tag "/stage", method: "patch" do %>
-  <input type="submit" value="Calculer la somme des nombres de la liste" />
+  <input type="submit" value="Calculate the sum of the numbers in the list" />
 <% end %>
 
 <p>
 </p>
 
-<h2><a href="/acknowledgements">Remerciements</a></h2>
+<h2><a href="/acknowledgements">Acknowledgements</a></h2>
 
