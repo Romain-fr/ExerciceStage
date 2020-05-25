@@ -15,6 +15,13 @@
   <input type="submit" value="Reset" />
 <% end %>
 
+<p>
+</p>
+
+<%= form_tag "/stage", method: "delete" do %>
+  <input type="submit" value="Reset" />
+<% end %>
+
 
 <% Number.all.each do |nb| %>
 <p><%= nb.value %></p>
