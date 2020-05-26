@@ -7,8 +7,8 @@
 <br>The result will appear at the bottom of this list</p>
 
 
-
-<p>Press "Reset" to clean all numbers from the list</p>
+<p>Press "Delete this number from the list" next to the number you want to delete it 
+<br>Press "Reset" to clean all numbers from the list</p>
 
 
 <%= form_tag "/stage", method: "delete" do %>
@@ -18,13 +18,12 @@
 <p>
 </p>
 
-<%= form_tag "/stage", method: "delete" do %>
-  <input type="submit" value="Reset" />
-<% end %>
-
-
 <% Number.all.each do |nb| %>
-<p><%= nb.value %></p>
+<%= form_tag "/stage/#{nb.id}", method: "delete" do %>
+  <p><%=nb.value %>
+  <input type="submit" value="Delete this number from the list" />
+<% end %>
+</p>
 <% end %>
 
 <p>

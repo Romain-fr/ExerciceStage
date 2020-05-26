@@ -27,4 +27,9 @@ class PagesController < ApplicationController
     redirect_to "/index"
   end
 
+  def destroy
+    Number.find(params[:id]).destroy
+    redirect_to "/index"
+  end
+
 end

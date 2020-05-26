@@ -9,4 +9,6 @@ post 'stage' => 'pages#create'
 patch 'stage' => 'pages#sum'
 delete 'stage' => 'pages#destroy_all'
 
+delete 'stage/:id' => 'pages#destroy'
+
 end
