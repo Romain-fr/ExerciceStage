@@ -1,11 +1,14 @@
 <h1>Welcome to the homepage of my project</h1>
-md`The current time is ${new Date(now).toLocaleTimeString()}.`
+<p>md`The current time is ${new Date(now).toLocaleTimeString()}.`</p>
 <p> This page allows you to calculate the sum of the numbers you enter. To do this:
 <br>- Enter a number in the space provided for
 <br>- Press "Add this number to the list"
 <br>- Once your list is complete, press "Calculate the sum of the numbers in the list"
 <br>The result will appear at the bottom of this list</p>
 
+<SPAN style="position: absolute; top: 80px; left: 550px">
+<img class="left" src="https://compass1.org/wp-content/uploads/2015/06/Calculator_clipped_rev_1.png" width="200" height="200"/>
+</SPAN>
 
 <p>Press "Delete this number from the list" next to the number you want to delete it 
 <br>Press "Reset" to clean all numbers from the list</p>
@@ -43,6 +46,7 @@ md`The current time is ${new Date(now).toLocaleTimeString()}.`
 
 <p>
 </p>
+<%= scatter_chart Number.pluck(:id, :value), xtitle: "Id", ytitle: "Value" %>
 
 <h2><a href="/acknowledgements">Acknowledgements</a></h2>
 
