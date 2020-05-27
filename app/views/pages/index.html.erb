@@ -48,59 +48,20 @@
 <%= scatter_chart Number.pluck(:id, :value), xtitle: "Id", ytitle: "Value" %>
 
 <SCRIPT language="Javascript">
-  chart = {
-  const svg = d3.create("svg")
-      .attr("viewBox", [0, 0, width, height]);
-
-  const rect = svg.selectAll("g")
-    .data(y01z)
-    .join("g")
-      .attr("fill", (d, i) => z(i))
-    .selectAll("rect")
-    .data(d => d)
-    .join("rect")
-      .attr("x", (d, i) => x(i))
-      .attr("y", height - margin.bottom)
-      .attr("width", x.bandwidth())
-      .attr("height", 0);
-
-  svg.append("g")
-      .call(xAxis);
-
-  function transitionGrouped() {
-    y.domain([0, yMax]);
-
-    rect.transition()
-        .duration(500)
-        .delay((d, i) => i * 20)
-        .attr("x", (d, i) => x(i) + x.bandwidth() / n * d[2])
-        .attr("width", x.bandwidth() / n)
-      .transition()
-        .attr("y", d => y(d[1] - d[0]))
-        .attr("height", d => y(0) - y(d[1] - d[0]));
-  }
-
-  function transitionStacked() {
-    y.domain([0, y1Max]);
-
-    rect.transition()
-        .duration(500)
-        .delay((d, i) => i * 20)
-        .attr("y", d => y(d[1]))
-        .attr("height", d => y(d[0]) - y(d[1]))
-      .transition()
-        .attr("x", (d, i) => x(i))
-        .attr("width", x.bandwidth());
-  }
-
-  function update(layout) {
-    if (layout === "stacked") transitionStacked();
-    else transitionGrouped();
-  }
-
-  return Object.assign(svg.node(), {update});
-}
+  <div id="container"></div> 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script> 
+<script> 
+var paper = Raphael("container", 500, 300); 
+var dot = paper.circle(250, 150, 30).attr({ 
+fill: "#FFF", 
+stroke: "#000", 
+"stroke-width": 1 
+}); 
+</script> 
 </SCRIPT>
 
 <h2><a href="/acknowledgements">Acknowledgements</a></h2>
 
+<svg width="80" height="80"> 
+<circle cx="40" cy="40" r="30" stroke="#000" stroke-width="1" fill="#FFF" /> 
+</svg> 
