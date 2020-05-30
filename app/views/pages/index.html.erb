@@ -1,3 +1,12 @@
+<head>
+
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script src="index.js"></script>
+
+</head>
+<body>
+
 <h1>Welcome to the homepage of my project</h1>
 <p> This page allows you to calculate the sum of the numbers you enter. To do this:
 <br>- Enter a number in the space provided for
@@ -48,6 +57,58 @@
 <%= scatter_chart Number.pluck(:id, :value), xtitle: "Id", ytitle: "Value" %>
 
 <script>
+
+	var canvas = d3.select("body")
+		     .append("svg")
+		     .attr("width", 500)
+		     .attr("height", 500);
+
+	var circle = canvas.append("circle")
+		     .attr("cx", 250)
+		     .attr("cy", 250)
+		     .attr("r", 50)
+		     .attr("fill", "red");
+
+	var rect = canvas.append("rect")
+		   .attr("x", 100)
+		   .attr("y", 100)
+		   .attr("width", 100)
+		   .attr("height", 10)
+		   .attr("fill", "green");
+
+	var line = canvas.append("line")
+		   .attr("x1", 0)
+		   .attr("y1", 0)
+		   .attr("x2", 500)
+		   .attr("y2", 500)
+		   .attr("stroke", "blue")
+		   .attr("stroke-width", 20);
+
+</script>
+
+<script>
+
+	var canvas = d3.select("body")
+		     .append("svg")
+		     .attr("width", 500)
+		     .attr("height", 500);
+
+	var dataArray = [20, 30, 50, 60];
+
+	var bars = canvas.selectAll("rect")
+		     .data(dataArray)
+		     .enter()
+		     	 .append("rect")
+			 .attr("width", function(d) { return d * 10; })
+			 .attr("height", 50)
+			 .attr("y", function(d, i) { return i * 100 }); 
+
+
+</script>
+
+
+<script>
+
 chart = {
   const svg = d3.create("svg")
       .attr("viewBox", [0, 0, width, height]);
@@ -189,3 +250,5 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
+
+</body>
